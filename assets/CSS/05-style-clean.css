@@ -3251,7 +3251,7 @@ body {
     flex-direction: column !important;
     align-items: center !important; /* Centre les boîtes orange */
 }
-.content_box.contacts .title-box_primary,
+
 .content_box.contacts .title-box_secondary {
     background-color: #ed6f2cc4 !important; /* Le fond orange */
     color: #6e6a90 !important; /* Le texte gris foncé (comme l'image) */
@@ -3386,12 +3386,12 @@ ul.sub-menu li a:hover {
 /* --- ÉTAT 2 : AU CLIC (Révélation du rectangle) --- */
 .clean-form input:focus, .clean-form textarea:focus {
     /* Apparition du fond orange très léger (effet verre) */
-    background-color: rgba(230, 95, 23, 0.15) !important;
+    background-color: #bbacb885 !important;
     /* Apparition d'une fine bordure blanche ou orange pour guider l'œil */
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.575) !important;
     outline: none;
     /* Optionnel : légère lueur pour faire ressortir le champ actif */
-    box-shadow: 0 0 10px rgba(230, 95, 23, 0.2) !important;
+    box-shadow: 0 0 10px #bbacb885 !important;
 }
    
    /* Nettoyage du champ message (textarea) */
