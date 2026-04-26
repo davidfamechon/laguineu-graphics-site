@@ -3467,10 +3467,38 @@ body {
     z-index: 10 !important;
 }
 
-/* 3. Restauration du script Parallax natif */
+/* --- FIX FINAL : PLEINE LARGEUR & EFFET PARALLAXE FIXE --- */
+/* --- CORRECTION FINALE DU CENTRAGE (OVERRIDE JS) --- */
+
+/* 1. On recentre le conteneur principal par rapport à l'écran */
+.parallax-box {
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    margin-left: -50vw !important;
+    overflow: hidden !important;
+}
+
+/* 2. On neutralise le décalage de -960px injecté par le script */
 .parallax-bg {
-    /* On supprime les règles width, left et margin qui cassaient le script sur le bureau */
-    background-size: cover !important; /* Étire l'image intelligemment pour éviter le fond gris */
+    left: 0 !important;          /* Annule le "left: 50%" du script */
+    margin-left: 0 !important;   /* Force le "0px" que tu as testé */
+    width: 100vw !important;     /* Force l'image à faire la largeur de l'écran */
+    position: absolute !important;
+    top: 0 !important;
+    height: 100% !important;
+    background-attachment: fixed !important; /* Garde l'effet parallaxe fixe */
+    background-size: cover !important;
+    background-position: center center !important;
+    z-index: 0 !important;
+}
+
+/* 3. On s'assure que le contenu reste bien au centre */
+.parallax-content {
+    max-width: 1170px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    z-index: 2 !important;
 }
 
 /* --- HOVER BOUTON CONTACT --- */
@@ -3789,6 +3817,15 @@ img[src*="services-img.webp"]:hover {
 
 .masonry-item .featured-thumbnail {
     overflow: hidden; /* Nécessaire pour que le zoom ne dépasse pas du cadre */
+}
+/* Style Highlight Orange pour les titres */
+.title-highlight {
+    background-color: #e65f17 !important; /* Ton orange corporatif */
+    color: #ffffff !important;           /* Texte en blanc */
+    display: inline-block;               /* Pour que le fond ne prenne que la largeur du texte */
+    padding: 5px 20px;                   /* Espace autour du texte */
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 /* ==========================================================================
@@ -4974,7 +5011,7 @@ img[src*="services-img.webp"]:hover {
         background-attachment: fixed !important;
         /* 2. On force le fond à ignorer le padding de 20px et à toucher les bords du téléphone */
         width: 100vw !important;
-        left: 50% !important;
+        
         margin-left: -50vw !important;
     }
 	/* --- 8. Agrandir les cercles des langues sur mobile --- */
