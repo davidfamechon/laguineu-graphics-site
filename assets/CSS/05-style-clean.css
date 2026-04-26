@@ -3827,6 +3827,34 @@ img[src*="services-img.webp"]:hover {
     font-weight: bold;
     margin-bottom: 20px;
 }
+/* --- ACCORDÉON LAGUINEU : LOGIQUE DYNAMIQUE --- */
+
+/* 1. ÉTAT FERMÉ : On force le blanc par défaut */
+.accordion-heading .accordion-toggle,
+.accordion-heading .accordion-toggle.collapsed {
+    border-color: #ffffff !important;
+}
+.accordion-heading .accordion-toggle:before,
+.accordion-heading .accordion-toggle.collapsed:before {
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* 2. ÉTAT OUVERT : Orange uniquement quand le menu n'est PAS fermé */
+.accordion-heading .accordion-toggle:not(.collapsed) {
+    border-color: #e65f17 !important;
+}
+.accordion-heading .accordion-toggle:not(.collapsed):before {
+    border-color: #e65f17 !important;
+    color: #e65f17 !important;
+}
+
+/* 3. SURVOL : Toujours orange pour l'interactivité */
+.accordion-heading .accordion-toggle:hover,
+.accordion-heading .accordion-toggle:hover:before {
+    border-color: #e65f17 !important;
+    color: #e65f17 !important;
+}
 
 /* ==========================================================================
    MEDIA QUERIES (Tablettes et mobiles)
