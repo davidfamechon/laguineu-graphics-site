@@ -5040,7 +5040,7 @@ img[src*="services-img.webp"]:hover {
         /* 2. On force le fond à ignorer le padding de 20px et à toucher les bords du téléphone */
         width: 100vw !important;
         
-        margin-left: -50vw !important;
+        margin-left: -0vw !important;
     }
 	/* --- 8. Agrandir les cercles des langues sur mobile --- */
     .social-nets-wrapper .social li a {
