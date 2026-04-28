@@ -1846,13 +1846,13 @@ body {
 .bg-layer-1 {
     background-image: 
         linear-gradient(rgba(44, 1, 94, 0.3), rgba(44, 1, 94, 0.3)), 
-        url('../images/hero/laguineu-treballant-al-cau.webp');
+        url('../images/hero/laguineu-treballant-al-cau.avif');
 }
 
 .bg-layer-2 {
     background-image: 
         linear-gradient(rgba(44, 1, 94, 0.3), rgba(44, 1, 94, 0.3)), 
-        url('../images/hero/header-bg.webp');
+        url('../images/hero/header-bg.avif');
     opacity: 0;
     z-index: -1; /* Juste au-dessus de l'image 1 */
     animation: crossfadeIndex 16s infinite ease-in-out;
@@ -3533,7 +3533,7 @@ body.portfolio-page::before {
     /* On ajoute le filtre linear-gradient ici aussi */
     background: 
         linear-gradient(rgba(44, 1, 94, 0.3), rgba(44, 1, 94, 0.3)), 
-        url('../images/hero/header-bg.webp') no-repeat center center;
+        url('../images/hero/header-bg.avif') no-repeat center center;
     background-size: cover;
     z-index: -1; 
     will-change: transform; 
