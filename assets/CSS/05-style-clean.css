@@ -3859,12 +3859,7 @@ img[src*="services-img.webp"]:hover {
 /* ==========================================================================
    MEDIA QUERIES (Tablettes et mobiles)
    ========================================================================== */
-@media (min-width: 980px) {
-  .nav-collapse.collapse {
-    height: auto !important;
-    overflow: visible !important;
-  }
-}
+
 /* 1. Les écrans larges */
 @media (min-width: 1200px) {
 	.row {
@@ -4232,6 +4227,44 @@ img[src*="services-img.webp"]:hover {
 		margin:0;
 	}
 	
+}
+@media (min-width: 980px) {
+  .nav-collapse.collapse {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
+/* --- OPTIMISATION SECTION COMPÉTENCES IPAD PRO & ÉCRANS MOYENS --- */
+@media (min-width: 980px) and (max-width: 1199px) {
+
+    .skills_wrapper {
+        margin-right: -30px !important; /* Marge négative pour compenser l'espace entre items */
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important; /* Équilibre parfait au centre */
+    }
+
+    .skills_wrapper .skills-item {
+        /* On passe à 2 colonnes larges (environ 450px chacune) */
+        width: 450px !important; 
+        margin: 0 15px 50px 15px !important;
+        float: none !important; /* Flexbox prend le relais du float */
+    }
+
+    .skills_wrapper .skills-item .inner_wrap {
+        padding-right: 80px !important; /* Plus d'air pour le pourcentage */
+    }
+
+    .skills_wrapper .skills-item .inner_wrap .level {
+        right: 0 !important;
+        font-size: 32px !important; /* Taille généreuse pour iPad Pro */
+    }
+
+    .skills_wrapper .skills-item .inner_wrap .desc h5 {
+        font-size: 18px !important;
+        margin-bottom: 12px !important;
+        white-space: normal !important; /* On autorise le retour à la ligne si vraiment nécessaire */
+    }
 }  
 
 /* 2. Les écrans moyens / Tablettes Paysage */
