@@ -4755,10 +4755,33 @@ img[src*="services-img.webp"]:hover {
 		padding:18px 0 0 0;
 		margin:18px 0 0 0;
   }
-  .skills_wrapper .skills-item { width:228px; }
-  .skills_wrapper .skills-item .inner_wrap { padding-right:62px; }
-  .skills_wrapper .skills-item .inner_wrap .level { right:-10px; }
-  .container { width: 724px; } 
+  .skills_wrapper {
+        margin-right: -20px !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important; /* Centre les batteries s'il y a un nombre impair */
+    }
+
+    .skills_wrapper .skills-item {
+        /* On passe à environ 50% de la largeur (340px) pour avoir 2 colonnes aérées */
+        width: 340px !important; 
+        margin: 0 10px 40px 10px !important;
+        float: left !important;
+    }
+
+    .skills_wrapper .skills-item .inner_wrap {
+        padding-right: 65px !important; /* Espace pour le pourcentage */
+    }
+
+    .skills_wrapper .skills-item .inner_wrap .level {
+        right: 0px !important;
+        font-size: 26px !important;
+    }
+
+    .skills_wrapper .skills-item .inner_wrap .desc h5 {
+        font-size: 16px !important; /* Légèrement plus petit pour éviter les retours à la ligne brusques */
+        white-space: nowrap !important; /* Force le titre sur une ligne si possible */
+    } 
 
 }
 
@@ -5096,19 +5119,6 @@ img[src*="services-img.webp"]:hover {
 		margin-top: -28px !important; 
         margin-left: 35px !important;
     }
-	.cf-turnstile {
-        display: none !important; /* Cache complètement le widget visuellement */
-    }
-
-    /* Alternative si tu veux garder l'élément "vivant" mais invisible */
-    /*
-    .cf-turnstile {
-        visibility: hidden !important;
-        height: 0 !important;
-        width: 0 !important;
-        margin: 0 !important;
-    }
-    */
 }
 
 /* MOBILES petits */
