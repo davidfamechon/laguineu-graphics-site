@@ -4955,13 +4955,6 @@ img[src*="services-img.webp"]:hover {
 		margin:0 0 15px 0 !important;
 		padding-left: 28px;
 	}
-	.skills_wrapper .skills-item .inner_wrap .diagram { 
-		max-width:476px; 
-		background-color: rgba(255, 255, 255, 0.1) !important;
-		backdrop-filter: blur(5px);
-		border: 1px solid rgba(255, 255, 255, 0.2);
-	
-	}
 	.skills_wrapper .skills-item .inner_wrap .chartCanvas { margin-left:0; }
 	.isotope_wrapper { padding-top:15px; }
 	.isotope_wrapper .masonry_filters li {
@@ -5167,7 +5160,7 @@ img[src*="services-img.webp"]:hover {
 	line-height:30px;
   }
   .skills_wrapper .skills-item { 
-	width:373px; 
+	width:363px; 
 
 }
   ul#portfolio-grid { grid-template-columns: 1fr; }
