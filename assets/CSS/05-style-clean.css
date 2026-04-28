@@ -5096,6 +5096,19 @@ img[src*="services-img.webp"]:hover {
 		margin-top: -28px !important; 
         margin-left: 35px !important;
     }
+	.cf-turnstile {
+        display: none !important; /* Cache complètement le widget visuellement */
+    }
+
+    /* Alternative si tu veux garder l'élément "vivant" mais invisible */
+    /*
+    .cf-turnstile {
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        margin: 0 !important;
+    }
+    */
 }
 
 /* MOBILES petits */
