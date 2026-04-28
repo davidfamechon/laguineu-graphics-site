@@ -4953,6 +4953,7 @@ img[src*="services-img.webp"]:hover {
 		width:420px;
 		float:none;
 		margin:0 0 15px 0 !important;
+		padding-left: 28px;
 	}
 	.skills_wrapper .skills-item .inner_wrap .diagram { 
 		max-width:476px; 
@@ -5061,7 +5062,7 @@ img[src*="services-img.webp"]:hover {
 		margin: -11px 7px; /* Corrige l'espace au dessus et à droite */
 		overflow: hidden;
 	}
-	@media (max-width: 767px) {
+
     /* Règle de base mobile (actuelle) */
     .logo_tagline { 
         margin-top: -10px !important; 
@@ -5102,7 +5103,6 @@ img[src*="services-img.webp"]:hover {
 		margin-top: -28px !important; 
         margin-left: 35px !important;
     }
-}
 }
 
 /* MOBILES petits */
@@ -5166,7 +5166,10 @@ img[src*="services-img.webp"]:hover {
 	height:30px;
 	line-height:30px;
   }
-  .skills_wrapper .skills-item { width:270px; }
+  .skills_wrapper .skills-item { 
+	width:373px; 
+
+}
   ul#portfolio-grid { grid-template-columns: 1fr; }
 }
 
