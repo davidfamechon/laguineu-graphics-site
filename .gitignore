@@ -1,0 +1,10 @@
+# Fichiers système macOS (qui révèlent des infos sur vos dossiers locaux)
+.DS_Store
+
+# Fichiers contenant vos secrets et mots de passe
+.env
+config.php
+credentials.json
+
+# Dossiers trop lourds (si vous utilisez Node.js)
+node_modules/
