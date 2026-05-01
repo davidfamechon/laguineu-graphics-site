@@ -3855,10 +3855,90 @@ img[src*="services-img.webp"]:hover {
     border-color: #e65f17 !important;
     color: #e65f17 !important;
 }
+/* --- MICRO-INTERACTIONS : BOUTONS --- */
+.btn-primary, .clean-form button[type="submit"] {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; /* Effet élastique */
+}
+
+.btn-primary:hover, .clean-form button[type="submit"]:hover {
+    transform: translateY(-4px) !important; /* Le bouton s'élève */
+    box-shadow: 0 12px 20px rgba(230, 95, 23, 0.3) !important; /* Ombre orange portée */
+}
+
+.btn-primary:active, .clean-form button[type="submit"]:active {
+    transform: translateY(-1px) !important; /* Sensation de clic physique */
+    box-shadow: 0 5px 10px rgba(230, 95, 23, 0.2) !important;
+}
+
+/* --- MICRO-INTERACTIONS : SKILLS --- */
+.skills_wrapper {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important; /* Centre l'ensemble */
+    margin-right: -20px !important;
+}
+
+.skills-item {
+    pointer-events: auto !important; 
+    transition: all 0.4s ease !important;
+    /* On utilise une largeur en pourcentage pour s'adapter à tous les écrans */
+    width: calc(48% - 20px) !important; 
+    min-width: 300px !important; /* Empêche de devenir trop petit */
+    margin: 0 10px 40px 10px !important;
+}
+
+.skills-item:hover {
+    background-color: transparent !important;
+    transform: translateX(8px) !important; /* Amplitude réduite pour plus de subtilité */
+}
+
+
 
 /* ==========================================================================
    MEDIA QUERIES (Tablettes et mobiles)
    ========================================================================== */
+
+   /* --- FIX SKILLS UNIFIÉ (Mobiles & Tablettes jusqu'à 1199px) --- */
+@media (max-width: 1199px) {
+    .skills_wrapper {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: space-evenly !important; 
+        margin-right: 0 !important; 
+        padding: 0 10px !important; 
+    }
+
+    .skills-item {
+        pointer-events: auto !important; 
+        width: 330px !important; /* Légèrement élargi pour l'air */
+        margin: 0 5px 45px 5px !important;
+        transition: all 0.4s ease !important;
+    }
+
+    /* 1. Aligner tous les titres sur une hauteur de 2 lignes */
+    .skills_wrapper .skills-item .inner_wrap .desc h5 {
+        min-height: 42px !important; /* Hauteur pour 2 lignes de texte */
+        display: flex !important;
+        align-items: flex-end !important; /* Aligne le texte en bas pour toucher la batterie */
+        margin-bottom: 12px !important;
+        line-height: 1.2em !important;
+    }
+
+    /* 2. Aérer l'espace entre le pôle positif et le pourcentage */
+    .skills_wrapper .skills-item .inner_wrap {
+        padding-right: 77px !important; /* Augmenté pour repousser le pourcentage */
+    }
+
+    .skills_wrapper .skills-item .inner_wrap .level {
+        right: 5px !important; /* Décale le chiffre pour ne pas coller au bord */
+        font-size: 28px !important;
+    }
+
+    .skills-item:hover {
+        transform: translateX(5px) !important;
+        background-color: transparent !important;
+    }
+}
 
 /* 1. Les écrans larges */
 @media (min-width: 1200px) {
@@ -4266,6 +4346,7 @@ img[src*="services-img.webp"]:hover {
         white-space: normal !important; /* On autorise le retour à la ligne si vraiment nécessaire */
     }
 }  
+
 
 /* 2. Les écrans moyens / Tablettes Paysage */
 @media (max-width: 979px) {
