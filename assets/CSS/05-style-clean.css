@@ -3891,7 +3891,28 @@ img[src*="services-img.webp"]:hover {
     background-color: transparent !important;
     transform: translateX(8px) !important; /* Amplitude réduite pour plus de subtilité */
 }
+/* --- EFFET ZOOM POUR LES GRILLES DE PORTFOLIO DÉDIÉES --- */
 
+/* 1. On sécurise le cadre pour que l'image ne dépasse pas en zoomant */
+.portfolio_item .thumbnail__portfolio, 
+.masonry-item .featured-thumbnail {
+    overflow: hidden !important;
+    background-color: #3a3a3a !important; /* Fond sombre pour la profondeur */
+}
+
+/* 2. Transition ultra-douce sur l'image (identique à cat.html) */
+.portfolio_item .thumbnail__portfolio img, 
+.masonry-item .featured-thumbnail img {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease !important;
+    will-change: transform;
+}
+
+/* 3. L'effet de Zoom au survol */
+.portfolio_item:hover .thumbnail__portfolio img, 
+.masonry-item .inner_wrap:hover img {
+    transform: scale(1.08) !important; /* Zoom de 8% pour rester subtil */
+    filter: brightness(0.8) !important; /* Légère baisse de lumière pour le contraste */
+}
 
 
 /* ==========================================================================
