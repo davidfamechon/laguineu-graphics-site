@@ -3913,6 +3913,22 @@ img[src*="services-img.webp"]:hover {
     transform: scale(1.08) !important; /* Zoom de 8% pour rester subtil */
     filter: brightness(0.8) !important; /* Légère baisse de lumière pour le contraste */
 }
+/* --- EFFET CHROMATIQUE EXPÉRIENCE : BLEU NUIT VERS ORANGE --- */
+.span6 img[src*="un_peu_dhistoire"] {
+    /* ÉTAT INITIAL : Bleu Outremer (Base sepia + rotation vers le violet) */
+    /* 215deg nous place exactement dans le bleu profond aux reflets magenta */
+    filter: bleu(1) hue-rotate(240deg) saturate(1.4) brightness(0.7) contrast(1.1) !important;
+    transition: all 0.9s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.span6:hover img[src*="un_peu_dhistoire"] {
+    /* ÉTAT AU SURVOL : Orange Laguineu (Moins de jaune, plus de rouge) */
+    /* En passant de -15deg à -25deg, on retire le jaune pour tendre vers un vermillon/orange chaud */
+    filter: sepia(1) hue-rotate(-25deg) saturate(3) brightness(0.9) contrast(1) !important;
+    transform: scale(1.03) !important;
+}
 
 
 /* ==========================================================================
