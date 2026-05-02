@@ -3930,6 +3930,25 @@ img[src*="services-img.webp"]:hover {
     transform: scale(1.03) !important;
 }
 
+/* --- MICRO-INTERACTION ÉLASTIQUE : ACCORDÉONS SERVICES --- */
+
+.accordion-heading .accordion-toggle {
+    /* On définit une transition longue avec un cubic-bezier pour l'effet rebond */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.accordion-heading .accordion-toggle:hover {
+    /* Translation de 12px vers la droite */
+    transform: translateX(12px) !important;
+    /* On garde l'effet orange que nous avons déjà configuré */
+    border-color: #e65f17 !important;
+}
+
+/* On s'assure que l'icône (la flèche) suit le mouvement avec la même souplesse */
+.accordion-heading .accordion-toggle:before {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
 
 /* ==========================================================================
    MEDIA QUERIES (Tablettes et mobiles)
