@@ -3269,6 +3269,7 @@ body {
 /* 1. Burger Menu (Alignement et passage au premier plan) */
 .sf-menu { margin: 0 !important; }
 .sf-menu > li > a:hover { text-decoration: none !important; }
+
 .header-wrap, .header-wrap.isStuck, .nav-button { z-index: 99999 !important; }
 
 /* --- SOUS-MENU "VEURE MÉS" (Géométrie d'origine) --- */
@@ -3900,19 +3901,50 @@ img[src*="services-img.webp"]:hover {
     background-color: #3a3a3a !important; /* Fond sombre pour la profondeur */
 }
 
-/* 2. Transition ultra-douce sur l'image (identique à cat.html) */
-.portfolio_item .thumbnail__portfolio img, 
-.masonry-item .featured-thumbnail img {
-    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease !important;
-    will-change: transform;
+/* --- PRESS BOOK : INFUSION LUMINEUSE (ZÉRO FLASH) --- */
+
+/* 1. Fond du conteneur : On reste sur du blanc pour la clarté */
+.masonry-item .featured-thumbnail {
+    position: relative !important;
+    overflow: hidden !important;
+    background-color: #ffffff !important;
 }
 
-/* 3. L'effet de Zoom au survol */
-.portfolio_item:hover .thumbnail__portfolio img, 
-.masonry-item .inner_wrap:hover img {
-    transform: scale(1.08) !important; /* Zoom de 8% pour rester subtil */
-    filter: brightness(0.8) !important; /* Légère baisse de lumière pour le contraste */
+/* 2. La gélatine bleue : On passe en 'overlay' pour protéger les blancs */
+.masonry-item .featured-thumbnail::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Bleu nuit profond */
+    background-color: #14182d !important; 
+    /* 'overlay' est magique : il teinte les gris mais laisse le blanc... blanc ! */
+    mix-blend-mode: overlay !important; 
+    opacity: 0.4 !important; 
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 2;
+    pointer-events: none;
 }
+
+/* 3. L'image au repos : Luminosité naturelle et contrastée */
+.masonry-item .featured-thumbnail img {
+    /* On redescend à 1.05 pour stopper la surexposition */
+    filter: grayscale(1) brightness(0.95) contrast(0.75) !important;
+    transition: 
+        filter 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    will-change: filter, transform;
+}
+
+/* 4. ÉTAT AU SURVOL : Restitution fidèle à 100% */
+.masonry-item .inner_wrap:hover .featured-thumbnail::after {
+    opacity: 0 !important;
+}
+
+.masonry-item .inner_wrap:hover .featured-thumbnail img {
+    filter: grayscale(0) brightness(1) contrast(1) !important;
+    transform: scale(1.06) !important;
+}
+
 /* --- EFFET CHROMATIQUE EXPÉRIENCE : BLEU NUIT VERS ORANGE --- */
 .span6 img[src*="un_peu_dhistoire"] {
     /* ÉTAT INITIAL : Bleu Outremer (Base sepia + rotation vers le violet) */
@@ -3948,7 +3980,115 @@ img[src*="services-img.webp"]:hover {
 .accordion-heading .accordion-toggle:before {
     transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
+/* ==========================================================================
+   FIX FINAL GLASSMORPHISM : BLEU NUIT & CLEAN MENU
+   ========================================================================== */
 
+/* 1. Le bouton "MENU" (Plus bleu et plus profond) */
+.nav-button {
+    background-color: rgba(230, 95, 23) !important; /* Base bleu nuit */
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* 2. Le fond du menu (Transparence bleuie type "Ink") */
+.sf-menu, 
+.opened ul.sf-menu {
+    /* Remplacement du gris par un bleu marine profond semi-transparent */
+    background-color: rgba(20, 24, 45, 0.6) !important; 
+    backdrop-filter: blur(18px) !important; /* Flou légèrement augmenté pour la classe */
+    -webkit-backdrop-filter: blur(18px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-top: 25px !important; /* Ajoute de l'air en haut du menu */
+}
+
+/* 3. Suppression de la ligne au-dessus de HOME */
+.sf-menu > li:first-child {
+    background-image: none !important; 
+    border-top: none !important; /* Supprime la ligne qui touchait les lettres */
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* 4. Séparateurs discrets pour les autres items */
+.sf-menu > li {
+    background-image: none !important; 
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transition: background 0.3s ease !important;
+}
+
+/* 5. Effet de survol sur les lignes du menu */
+.sf-menu > li:hover {
+    background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* 1. Force la transparence totale sur la ligne et le lien au survol */
+.sf-menu > li:hover, 
+.sf-menu > li.sfHover,
+.sf-menu > li > a:hover,
+.sf-menu > li.current-menu-item > a {
+    background-color: transparent !important;
+    background: none !important;
+    /* On s'assure que seul le texte change de couleur */
+    color: #e65f17 !important; 
+}
+
+/* 2. Suppression spécifique du voile sur HOME (souvent lié au padding) */
+.sf-menu > li:first-child:hover {
+    background: transparent !important;
+}
+
+/* 3. On s'assure que les sous-menus (si présents) suivent la même règle */
+.sf-menu li ul li:hover,
+.sf-menu li ul li.sfHover {
+    background: transparent !important;
+}
+/* --- GLASSMORPHISM POUR LE SOUS-MENU --- */
+ul.sub-menu {
+    /* On reprend la base Bleu Ink, un poil plus opaque (0.85) pour le contraste */
+    background-color: rgba(20, 24, 45, 0.6) !important; 
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    
+    /* Bordure fine pour l'effet "vitre" */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    
+    /* Ombre portée plus douce pour détacher la boîte du menu parent */
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* On s'assure que les éléments internes du sous-menu sont aussi cristallins */
+ul.sub-menu li {
+    background: transparent !important;
+    border: none !important;
+}
+
+ul.sub-menu li a {
+    /* On s'assure que le texte du sous-menu reste bien gris clair au repos */
+    color: #9e9e9e !important;
+    transition: color 0.3s ease !important;
+}
+
+ul.sub-menu li a:hover {
+    /* Et orange au survol comme le reste du studio */
+    color: #e65f17 !important;
+    background: transparent !important;
+}
+
+/* --- VIDÉO SERVICES : CYANOTYPE NOIR & CONTRASTE ÉLEVÉ --- */
+.parallax_media {
+    /* 1. On tue les couleurs chair (fini les Schtroumpfs) */
+    /* 2. On booste le contraste et la lumière */
+    /* 3. On teinte en bleu via sepia + hue-rotate */
+    filter: 
+        grayscale(1) 
+        brightness(0.8) 
+        contrast(2) 
+        sepia(0.4) 
+        hue-rotate(220deg) 
+        saturate(1) !important;
+    transition: filter 1s ease !important;
+}
 
 /* ==========================================================================
    MEDIA QUERIES (Tablettes et mobiles)
@@ -5087,6 +5227,7 @@ img[src*="services-img.webp"]:hover {
 	margin: 0 !important;
 	left: 0 !important;
 	z-index: 99999 !important; /* Garantit qu'il reste au-dessus de tout le reste */
+	
   }
   .logo {
 		width:100%;

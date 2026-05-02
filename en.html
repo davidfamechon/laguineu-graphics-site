@@ -608,6 +608,16 @@
       });
   });
 </script>
+<script>
+    // Cible la vidéo de la section Services
+    document.addEventListener("DOMContentLoaded", function() {
+        const servicesVideo = document.querySelector('.cherry_video_parallax_1 video');
+        if (servicesVideo) {
+            // 0.75 est la vitesse idéale pour un effet "vaporeux" sans saccades
+            servicesVideo.playbackRate = 0.75; 
+        }
+    });
+</script>
 
 </body>
 </html>
