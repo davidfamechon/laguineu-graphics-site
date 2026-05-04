@@ -425,8 +425,9 @@
             <h3><b>Have a project in mind?</b></h3>
             <p>Tell me what you need. Whether it's a new visual identity, a website, or printed materials, I'll be happy to listen and prepare a custom quote with no strings attached.</p>
             
-            <div class="extra-wrap phone">
-                +34 687 739 645
+            <!-- Remplacez votre bloc .phone par celui-ci -->
+            <div class="phone">
+                <a href="#" id="dynamic-phone-link">+34 687 739 645</a>
             </div>
             <div class="extra-wrap email">
                 <p><a href="mailto:info@laguineu.graphics">info@laguineu.graphics</a></p>
@@ -618,6 +619,40 @@
         }
     });
 </script>
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const phoneLink = document.getElementById('dynamic-phone-link');
+        const phoneNumber = "34687739645"; // Votre numéro sans espaces ni symboles
+        
+        // Détection : Si l'écran est plus large que 1024px, on considère que c'est un Desktop
+        if (window.innerWidth > 1024) {
+            // Lien vers WhatsApp Web
+            phoneLink.href = "https://web.whatsapp.com/send?phone=" + phoneNumber;
+            phoneLink.title = "Contact us via WhatsApp";
+        } else {
+            // Lien d'appel direct pour Mobile/Tablette
+            phoneLink.href = "tel:+" + phoneNumber;
+            phoneLink.title = "Call us now";
+        }
+    });
+    </script> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const phoneLink = document.getElementById('dynamic-phone-link');
+            const phoneNumber = "34687739645"; // VOTRE NUMÉRO (Format international sans + ni espaces)
+            
+            // Détection : Desktop vs Mobile
+            if (window.innerWidth > 1024) {
+                // LIEN UNIVERSEL : Priorité à l'application installée, avec repli vers le web
+                phoneLink.href = "https://api.whatsapp.com/send?phone=" + phoneNumber;
+                phoneLink.title = "Contact us via WhatsApp";
+            } else {
+                // Mobile/Tablette : Appel direct
+                phoneLink.href = "tel:+" + phoneNumber;
+                phoneLink.title = "Call us now";
+            }
+        });
+        </script>
 
 </body>
 </html>

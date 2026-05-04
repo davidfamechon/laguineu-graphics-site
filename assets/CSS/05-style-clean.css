@@ -2468,18 +2468,36 @@ select, input[type="file"] { padding:0; }
 	border-radius:100%;
 }
 
+/* --- L'EMAIL : TRANSLATION ET LUMINOSITÉ ACCRUE --- */
 .email a {
-	color:#ffffff !important;
-	text-decoration:none !important;
-	-webkit-transition:color 0.3s;
-	-moz-transition:color 0.3s;
-	-o-transition:color 0.3s;
-	transition:color 0.3s ease !important;
+    display: inline-block !important; /* Vital pour permettre la translation */
+    color: #ffffff !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
-.email a:hover, 
-.email a:focus {
-	color: #f7c18d !important; /* La couleur du hover email de Contact ! */
+
+.email a:hover {
+    color: #ffffff !important;
+    /* Translation vers la droite de 8px */
+    transform: translateX(8px) !important;
+    /* Effet "plus blanc que blanc" via luminosité et lueur */
+    filter: brightness(1.5) !important;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6) !important;
 }
+/* --- LE TÉLÉPHONE : ALIGNÉ SUR L'EFFET EMAIL --- */
+.phone a {
+    display: inline-block !important;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.phone a:hover {
+    color: #ffffff !important;
+    transform: translateX(8px) !important;
+    filter: brightness(1.5) !important;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6) !important;
+}
+
 .locality { margin-top:3px; }
 .locality:before { content:'\f015'; }
 .phone:before { content:'\f095'; }
@@ -3820,14 +3838,40 @@ img[src*="services-img.webp"]:hover {
     overflow: hidden; /* Nécessaire pour que le zoom ne dépasse pas du cadre */
 }
 /* Style Highlight Orange pour les titres */
-.title-highlight {
-    background-color: #e65f17 !important; /* Ton orange corporatif */
-    color: #ffffff !important;           /* Texte en blanc */
-    display: inline-block;               /* Pour que le fond ne prenne que la largeur du texte */
-    padding: 5px 20px;                   /* Espace autour du texte */
+/* .title-highlight {
+    background-color: #e65f17 !important;  
+    color: #ffffff !important;           
+    display: inline-block;                
+    padding: 5px 20px;                   
     font-weight: bold;
     margin-bottom: 20px;
+} */
+/* --- TITRES : EFFET COUP DE PINCEAU ORGANIQUE --- */
+.title-highlight {
+    color: #ffffff !important;
+	background-color: transparent !important; /* On supprime le rectangle solide */
+    position: relative !important;
+    display: inline-block !important;
+    padding: 0 10px !important;
+    z-index: 1;
 }
+.title-highlight::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 5px; /* Ajuste la hauteur du trait sous les lettres */
+    left: -5%;
+    width: 110%; /* Déborde légèrement sur les côtés pour le style */
+    height: 18px; /* Épaisseur du trait de pinceau */
+    background-color: #ed6f2cc4 !important; /* Votre orange signature */
+    z-index: -1; /* Passe derrière le texte */
+    
+    /* La magie du pinceau : une forme irrégulière via border-radius */
+    border-radius: 250px 15px 225px 15px/15px 225px 15px 255px;
+    /* On ajoute une légère rotation pour le côté "fait main" */
+    transform: rotate(-1.5deg);
+    opacity: 1;
+}
+
 /* --- ACCORDÉON LAGUINEU : LOGIQUE DYNAMIQUE --- */
 
 /* 1. ÉTAT FERMÉ : On force le blanc par défaut */
@@ -3908,6 +3952,16 @@ img[src*="services-img.webp"]:hover {
     position: relative !important;
     overflow: hidden !important;
     background-color: #ffffff !important;
+}
+/* 2. Transition ultra-douce sur l'image pour le Portfolio */
+.portfolio_item .thumbnail__portfolio img {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    will-change: transform;
+}
+
+/* 3. L'effet de Zoom au survol pour le Portfolio */
+.portfolio_item:hover .thumbnail__portfolio img {
+    transform: scale(1.08) !important; /* Zoom de 8% */
 }
 
 /* 2. La gélatine bleue : On passe en 'overlay' pour protéger les blancs */
