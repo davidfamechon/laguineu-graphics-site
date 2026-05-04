@@ -2468,34 +2468,22 @@ select, input[type="file"] { padding:0; }
 	border-radius:100%;
 }
 
-/* --- L'EMAIL : TRANSLATION ET LUMINOSITÉ ACCRUE --- */
-.email a {
-    display: inline-block !important; /* Vital pour permettre la translation */
-    color: #ffffff !important;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
-}
-
-.email a:hover {
-    color: #ffffff !important;
-    /* Translation vers la droite de 8px */
-    transform: translateX(8px) !important;
-    /* Effet "plus blanc que blanc" via luminosité et lueur */
-    filter: brightness(1.5) !important;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6) !important;
-}
-/* --- LE TÉLÉPHONE : ALIGNÉ SUR L'EFFET EMAIL --- */
-.phone a {
+/* --- CONTACT : EFFET NOVA SANS SOULIGNAGE --- */
+.email a, .phone a {
     display: inline-block !important;
     color: #ffffff !important;
-    text-decoration: none !important;
+    text-decoration: none !important; /* Déjà présent au repos */
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 
-.phone a:hover {
+.email a:hover, .phone a:hover {
     color: #ffffff !important;
-    transform: translateX(8px) !important;
-    filter: brightness(1.5) !important;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6) !important;
+    /* LA CORRECTION : On force la suppression du soulignement au survol */
+    text-decoration: none !important; 
+    
+    transform: translateX(10px) !important;
+    filter: brightness(2) !important; 
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5) !important;
 }
 
 .locality { margin-top:3px; }
@@ -3271,8 +3259,7 @@ body {
 }
 
 .content_box.contacts .title-box_secondary {
-    background-color: #ed6f2cc4 !important; /* Le fond orange */
-    color: #6e6a90 !important; /* Le texte gris foncé (comme l'image) */
+    color: #ffffffd4 !important; /* Le texte blanc */
     display: inline-block !important;
     padding: 2px 15px 5px 15px !important; /* Marges intérieures du surlignage */
     margin-bottom: 8px !important; /* Espace entre les deux titres */
@@ -3907,7 +3894,7 @@ img[src*="services-img.webp"]:hover {
 
 .btn-primary:hover, .clean-form button[type="submit"]:hover {
     transform: translateY(-4px) !important; /* Le bouton s'élève */
-    box-shadow: 0 12px 20px rgba(230, 95, 23, 0.3) !important; /* Ombre orange portée */
+    box-shadow: 0 12px 20px #ffffff63 !important; /* Ombre orange portée */
 }
 
 .btn-primary:active, .clean-form button[type="submit"]:active {
