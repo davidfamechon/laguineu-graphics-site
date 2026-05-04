@@ -2567,7 +2567,7 @@ select, input[type="file"] { padding:0; }
 }
 .content_box .btn-primary:hover, .content_box .btn-primary:focus {
 	background-color:#fff;
-	color:#3a3a3a;
+	color:#e65f17;
 }
 .content_box.contacts {
 	background-color:transparent;
@@ -3378,7 +3378,7 @@ ul.sub-menu li a:hover {
     background-color: transparent !important;
     border: 1px solid transparent !important;
     /* On garde les dimensions et l'arrondi pour éviter les sauts visuels au clic */
-    border-radius: 8px !important;
+    border-radius: 3px !important;
     padding: 18px 25px !important; 
     color: #ffffff !important;
     font-family: 'Dancing Script', cursive !important;
@@ -3510,8 +3510,8 @@ body {
 /* --- HOVER BOUTON CONTACT --- */
 .content_box.contacts .btn-primary:hover, 
 .content_box.contacts .btn-primary:focus {
-    background-color: #e65f17 !important; /* Fond orange */
-    border-color: #e65f17 !important;     /* Bordure orange */
+    background-color: #e65f1700 !important; /* Fond orange */
+    border-color: #ffffff !important;     /* Bordure orange */
     color: #ffffff !important;            /* Texte blanc */
 }
 
@@ -3969,7 +3969,7 @@ img[src*="services-img.webp"]:hover {
 /* 3. L'image au repos : Luminosité naturelle et contrastée */
 .masonry-item .featured-thumbnail img {
     /* On redescend à 1.05 pour stopper la surexposition */
-    filter: grayscale(1) brightness(0.95) contrast(0.75) !important;
+    filter: grayscale(1) brightness(1.2) contrast(0.75) !important;
     transition: 
         filter 1.2s cubic-bezier(0.4, 0, 0.2, 1), 
         transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
